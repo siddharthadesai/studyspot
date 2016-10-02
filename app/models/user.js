@@ -3,30 +3,26 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt-nodejs');
 
 var userSchema = mongoose.Schema({
-
-    local            : {
-        email        : String,
-        password     : String,
-    },
+    newUser          : { type : Boolean, default : true},
     facebook         : {
         id           : String,
         token        : String,
         email        : String,
         name         : String
     },
-    twitter          : {
-        id           : String,
-        token        : String,
-        displayName  : String,
-        username     : String
-    },
     google           : {
         id           : String,
         token        : String,
         email        : String,
         name         : String
+    },
+    preferences      : {
+        noise        : Number,
+        outlets      : Boolean,
+        wifi         : Boolean,
+        food         : Boolean,
+        coffeeshop   : Boolean
     }
-
 });
 
 userSchema.methods.generateHash = function(password) {

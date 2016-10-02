@@ -1,4 +1,4 @@
-<!-- views/profile.ejs -->
+<-- views/profile.ejs -->
 <!doctype html>
 <html>
 <head>
@@ -17,25 +17,34 @@
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
     </div>
 
-    <div class="row">
-
-        <!-- FACEBOOK INFORMATION -->
-        <div class="col-sm-6">
-            <div class="well">
-                <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
-
-                    <p>
-                        <strong>id</strong>: <%= user.facebook.id %><br>
-                        <strong>token</strong>: <%= user.facebook.token %><br>
-                        <strong>email</strong>: <%= user.facebook.email %><br>
-                        <strong>name</strong>: <%= user.facebook.name %>
-                    </p>
-
-            </div>
-        </div>
-
-    </div>
-
+    <% if (prompt) { %>
+        <form action="#">
+            <p>
+              <input type="checkbox" id="test5" />
+              <label for="test5">Red</label>
+            </p>
+            <p>
+              <input type="checkbox" id="test6" checked="checked" />
+              <label for="test6">Yellow</label>
+            </p>
+            <p>
+              <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+              <label for="filled-in-box">Filled in</label>
+            </p>
+            <p>
+              <input type="checkbox" id="indeterminate-checkbox" />
+              <label for="indeterminate-checkbox">Indeterminate Style</label>
+            </p>
+            <p>
+              <input type="checkbox" id="test7" checked="checked" disabled="disabled" />
+              <label for="test7">Green</label>
+            </p>
+              <p>
+                <input type="checkbox" id="test8" disabled="disabled" />
+                <label for="test8">Brown</label>
+            </p>
+        </form>
+    <% } %>
 </div>
 </body>
 </html>

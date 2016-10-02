@@ -24,9 +24,22 @@ module.exports = function(app, passport) {
     // we will want this protected so you have to be logged in to visit
     // we will use route middleware to verify this (the isLoggedIn function)
     app.get('/profile', isLoggedIn, function(req, res) {
+        var user = req.user;
+        var prompt = false;
+        if (user.newUser == true) {
+            user.newUser = false;
+            prompt = true;
+            user.save(function(err){
+                if (err) {
+                    res.redirect('/error');
+                }
+            });
+        }
         res.render('profile.ejs', {
-            user : req.user // get the user out of session and pass to template
+            user   : user,
+            prompt : prompt
         });
+       
     });
 
     app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
