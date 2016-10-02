@@ -12,11 +12,11 @@ module.exports = function(app, passport) {
     // LOGIN ===============================
     // =====================================
     // show the login form
-    app.get('/login', function(req, res) {
+    // app.get('/login', function(req, res) {
 
         // render the page and pass in any flash data if it exists
-        res.render('login.ejs', { message: req.flash('loginMessage') }); 
-    });
+        // res.render('login.ejs', { message: req.flash('loginMessage') }); 
+    // });
 
     // process the login form
     // app.post('/login', do all our passport stuff here);
@@ -25,11 +25,11 @@ module.exports = function(app, passport) {
     // SIGNUP ==============================
     // =====================================
     // show the signup form
-    app.get('/signup', function(req, res) {
+    // app.get('/signup', function(req, res) {
 
         // render the page and pass in any flash data if it exists
-        res.render('signup.ejs', { message: req.flash('signupMessage') });
-    });
+        // res.render('signup.ejs', { message: req.flash('signupMessage') });
+    // });
 
     // process the signup form
     // app.post('/signup', do all our passport stuff here);
@@ -44,6 +44,23 @@ module.exports = function(app, passport) {
             user : req.user // get the user out of session and pass to template
         });
     });
+
+    app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+
+    app.get('/auth/facebook/callback',
+            passport.authenticate('facebook', {
+                successRedirect : '/profile',
+                failureRedirect : '/'
+        }));
+
+    app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+
+    // the callback after google has authenticated the user
+    app.get('/auth/google/callback',
+            passport.authenticate('google', {
+                    successRedirect : '/profile',
+                    failureRedirect : '/'
+            }));
 
     // =====================================
     // LOGOUT ==============================
