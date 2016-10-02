@@ -13,7 +13,7 @@ module.exports = function(app, passport) {
     });
 
     app.post('/submit', function(req, res) {
-        console.log(req);
+        console.log(req.body.address);
         res.redirect('/submit')
     });
 
