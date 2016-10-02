@@ -1,4 +1,5 @@
 <!-- views/index.ejs -->
+
 <!doctype html>
 <html>
 <head>
@@ -10,55 +11,14 @@
 <body>
 <div class="container">
 
-    <div class="jumbotron text-center">
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#spotUpload">
-            Submit a Study Spot
-        </button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="spotUpload" tabindex="-1" role="dialog" aria-labelledby="spotUploadLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title" id="myModalLabel">Submit a Study Spot</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form action="/submit" method="post">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input name="name" class="form-control" type="text" id="name" aria-describedby="nameHelp" placeholder="Enter name of location">
-                            </div>
-                            <div class="form-group">
-                                <label for="address">Address</label>
-                                <input name="address" class="form-control" type="text" id="name" aria-describedby="addressHelp" placeholder="Enter most-recent known address">
-                            </div>
-                            <div class="form-group">
-                                <label for="start">Open Time</label>
-                                <input class="form-control" type="time" value="00:00:00" id="start">
-                            </div>
-                            <div class="form-group">
-                                <label for="close">Close Time</label>
-                                <input class="form-control" type="time" value="00:00:00" id="close">
-                            </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button class="btn btn-primary" data-dismiss="modal" type="submit">Submit Spot</button>
-                        </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 </body>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
 
+</html>
 </html>
